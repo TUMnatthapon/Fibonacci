@@ -35,7 +35,7 @@ class _FibonacciState extends State<Fibonacci> {
   List<int> fibonacciList = [];
   Map<int, int> modalData = {};
   ScrollController scrollController = ScrollController();
-  ScrollController modelScrollController = ScrollController();
+  ScrollController modalScrollController = ScrollController();
   List<IconData> iconList = [
     Icons.circle,
     Icons.square_outlined,
@@ -71,7 +71,7 @@ class _FibonacciState extends State<Fibonacci> {
     setState(() {});
 
     Future.delayed(const Duration(milliseconds: 100), () {
-      modelScrollController.animateTo(
+      modalScrollController.animateTo(
         (double.parse('$actionIndex') - countUnshow) * itemHeight,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
@@ -150,7 +150,7 @@ class _FibonacciState extends State<Fibonacci> {
           width: double.infinity,
           height: MediaQuery.of(context).size.height * 0.5,
           child: ListView.builder(
-              controller: modelScrollController,
+              controller: modalScrollController,
               itemCount: modalData.length,
               itemBuilder: (context, xIndex) {
                 final key = modalData.keys.elementAt(xIndex);
