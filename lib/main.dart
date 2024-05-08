@@ -53,7 +53,7 @@ class _FibonacciState extends State<Fibonacci> {
     }
   }
 
-  void setModelData(int index) async {
+  void setModalData(int index) async {
     actionIndex = index;
     modalData[index] = fibonacciList[index];
     final sortedKeys = modalData.keys.toList()..sort();
@@ -102,7 +102,7 @@ class _FibonacciState extends State<Fibonacci> {
           if (modalData.containsKey(index)) return Container();
           return InkWell(
             onTap: () async {
-              setModelData(index);
+              setModalData(index);
               bottomSheetMethod(context: context, groupIndex: groupIndex).then((value) {
                 if (value != null) {
                   modalData.remove(value);
